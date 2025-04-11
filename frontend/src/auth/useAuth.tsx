@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "./constant";
 
 const useAuth = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({username:null,user_id:null});
   const navigate = useNavigate();
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
 
@@ -19,7 +19,7 @@ const useAuth = () => {
     localStorage.removeItem("user");
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
-    setUser({ });
+    setUser({username:null,user_id:null});
     setIsAuthorized(false);
     navigate('/login')
   };
